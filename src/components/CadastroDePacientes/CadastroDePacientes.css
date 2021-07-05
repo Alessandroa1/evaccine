@@ -1,0 +1,12 @@
+.box{
+    display:inline-table;
+    width: 100%;
+    padding: 10px;   
+    justify-items: left;
+
+    }
+
+h2{
+    color: rgb(114, 160, 212);;
+}
+
