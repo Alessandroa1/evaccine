@@ -3,6 +3,7 @@ package br.com.alessandro.sa.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,8 @@ import br.com.alessandro.sa.domain.Agenda;
 import br.com.alessandro.sa.repository.AgendaRepository;
 
 @RestController
-@RequestMapping("/gruposprioritarios")
+@RequestMapping("/cadastrovacinacao")
+@CrossOrigin(origins = { "http://localhost:3000"})
 public class AgendaController {
 	
 	@Autowired
@@ -31,7 +33,7 @@ public class AgendaController {
 	}
 	
 	@PostMapping
-	public Agenda cadastarGrupoPrioritario (@RequestBody Agenda grupoPrioritario) {
-		return agendaRepository.save(grupoPrioritario);
+	public Agenda cadastarVacinacao (@RequestBody Agenda agendamento) {
+		return agendaRepository.save(agendamento);
 	}
 }
