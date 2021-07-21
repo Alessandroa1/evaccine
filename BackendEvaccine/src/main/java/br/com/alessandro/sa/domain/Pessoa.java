@@ -1,12 +1,15 @@
 package br.com.alessandro.sa.domain;
 
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Pessoa {
@@ -23,6 +26,8 @@ public class Pessoa {
 	
 	private String telefone;
 	
+	private String endereco;	
+
 	private String email;
 	
 	private Integer idade;
@@ -31,9 +36,10 @@ public class Pessoa {
 	
 	private Boolean isVacinada;
 	
-	@ManyToOne
+	
+	@OneToMany
 	@JoinColumn(name="codigo_agenda")
-	private Agenda grupo;
+	private List <Agenda> agenda;
 	
 	public Long getCodigo() {
 		return codigo;
@@ -57,6 +63,14 @@ public class Pessoa {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public String getNomeMae() {
+		return nomeMae;
+	}
+
+	public void setNomeMae(String nomeMae) {
+		this.nomeMae = nomeMae;
 	}
 
 	public String getTelefone() {
@@ -88,7 +102,15 @@ public class Pessoa {
 	}
 
 	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
+		this.dataNascimento = dataNascimento;		
+	}
+	
+	public String getEndereço() {
+		return endereco;
+	}
+
+	public void setEndereço(String endereco) {
+		this.endereco = endereco;
 	}
 	
 	public Boolean getIsVacinada() {
@@ -97,6 +119,14 @@ public class Pessoa {
 
 	public void setIsVacinada(Boolean isVacinada) {
 		this.isVacinada = isVacinada;
+	}
+	
+	public List<Agenda> getAgenda() {
+		return agenda;
+	}
+
+	public void setAgenda(List<Agenda> agenda) {
+		this.agenda = agenda;
 	}
 
 	@Override
@@ -123,17 +153,5 @@ public class Pessoa {
 			return false;
 		return true;
 	}
-
-	public String getNomeMae() {
-		return nomeMae;
-	}
-
-	public void setNomeMae(String nomeMae) {
-		this.nomeMae = nomeMae;
-	}
-
-	
-
-	
-
+		
 }

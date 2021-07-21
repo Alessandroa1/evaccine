@@ -16,10 +16,25 @@ public class Agenda {
 	
 	private String dataAgendamento;
 	
-	private String horarioAgendamento;
+	private String horaAgendamento;
 	
 	private String nomeVacina;
 	
+	private String dose;
+
+	private String laboratorio;
+	
+	private String endereco;
+	
+	
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
 	public String getDataAgendamento() {
 		return dataAgendamento;
 	}
@@ -28,12 +43,12 @@ public class Agenda {
 		this.dataAgendamento = dataAgendamento;
 	}
 
-	public String getHorarioAgendamento() {
-		return horarioAgendamento;
+	public String getHoraAgendamento() {
+		return horaAgendamento;
 	}
 
-	public void setHorarioAgendamento(String horarioAgendamento) {
-		this.horarioAgendamento = horarioAgendamento;
+	public void setHoraAgendamento(String horaAgendamento) {
+		this.horaAgendamento = horaAgendamento;
 	}
 
 	public String getNomeVacina() {
@@ -44,25 +59,14 @@ public class Agenda {
 		this.nomeVacina = nomeVacina;
 	}
 
-	private String dose;
-
-	private String nomeDoPaciente;
-
-	private String nomeDaVacina;
+	
 	
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result + ((dataAgendamento == null) ? 0 : dataAgendamento.hashCode());
-		result = prime * result + ((dose == null) ? 0 : dose.hashCode());
-		result = prime * result + ((horarioAgendamento == null) ? 0 : horarioAgendamento.hashCode());
-		result = prime * result + ((nomeDaVacina == null) ? 0 : nomeDaVacina.hashCode());
-		result = prime * result + ((nomeDoPaciente == null) ? 0 : nomeDoPaciente.hashCode());
-		result = prime * result + ((nomePaciente == null) ? 0 : nomePaciente.hashCode());
-		result = prime * result + ((nomeVacina == null) ? 0 : nomeVacina.hashCode());
+		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		return result;
 	}
 
@@ -75,45 +79,10 @@ public class Agenda {
 		if (getClass() != obj.getClass())
 			return false;
 		Agenda other = (Agenda) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
+		if (endereco == null) {
+			if (other.endereco != null)
 				return false;
-		} else if (!codigo.equals(other.codigo))
-			return false;
-		if (dataAgendamento == null) {
-			if (other.dataAgendamento != null)
-				return false;
-		} else if (!dataAgendamento.equals(other.dataAgendamento))
-			return false;
-		if (dose == null) {
-			if (other.dose != null)
-				return false;
-		} else if (!dose.equals(other.dose))
-			return false;
-		if (horarioAgendamento == null) {
-			if (other.horarioAgendamento != null)
-				return false;
-		} else if (!horarioAgendamento.equals(other.horarioAgendamento))
-			return false;
-		if (nomeDaVacina == null) {
-			if (other.nomeDaVacina != null)
-				return false;
-		} else if (!nomeDaVacina.equals(other.nomeDaVacina))
-			return false;
-		if (nomeDoPaciente == null) {
-			if (other.nomeDoPaciente != null)
-				return false;
-		} else if (!nomeDoPaciente.equals(other.nomeDoPaciente))
-			return false;
-		if (nomePaciente == null) {
-			if (other.nomePaciente != null)
-				return false;
-		} else if (!nomePaciente.equals(other.nomePaciente))
-			return false;
-		if (nomeVacina == null) {
-			if (other.nomeVacina != null)
-				return false;
-		} else if (!nomeVacina.equals(other.nomeVacina))
+		} else if (!endereco.equals(other.endereco))
 			return false;
 		return true;
 	}
@@ -135,20 +104,11 @@ public class Agenda {
 	}
 
 	public String getHorarioDoAgendamento() {
-		return horarioAgendamento;
+		return horaAgendamento;
 	}
 
 	public void setHorarioDoAgendamento(String horarioDoAgendamento) {
-		this.horarioAgendamento = horarioDoAgendamento;
-	}
-
-
-	public String getNomeDaVacina() {
-		return nomeDaVacina;
-	}
-
-	public void setNomeDaVacina(String nomeDaVacina) {
-		this.nomeDaVacina = nomeDaVacina;
+		this.horaAgendamento = horarioDoAgendamento;
 	}
 
 	public String getDose() {
@@ -158,13 +118,13 @@ public class Agenda {
 	public void setDose(String dose) {
 		this.dose = dose;
 	}
-
-	public String getNomeDoPaciente() {
-		return nomeDoPaciente;
+	
+	public String getLaboratorio() {
+		return laboratorio;
 	}
 
-	public void setNomeDoPaciente(String nomeDoPaciente) {
-		this.nomeDoPaciente = nomeDoPaciente;
+	public void setLaboratorio(String laboratorio) {
+		this.laboratorio = laboratorio;
 	}
 
 	public String getNomePaciente() {

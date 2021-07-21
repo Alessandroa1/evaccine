@@ -2,8 +2,11 @@ package br.com.alessandro.sa.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +45,7 @@ public class PessoaController {
 					record.setEmail(pessoa.getEmail());
 					record.setIdade(pessoa.getIdade());
 					record.setNome(pessoa.getNome());
+					record.setEndereço(pessoa.getEndereço());
 					record.setTelefone(pessoa.getTelefone());
 					record.setIsVacinada(pessoa.getIsVacinada());
 					return pessoaRepository.save(record);
@@ -50,11 +54,18 @@ public class PessoaController {
 	
 	@GetMapping("{codigo}")
 	public Pessoa buscarPeloCodigo(@PathVariable Long codigo) {
-		return pessoaRepository.findById(codigo).orElse(null);	
-		
+		return pessoaRepository.findById(codigo).orElse(null);			
 		}
 	
+	@DeleteMapping(path ={"/{codigo}"})
+	public void delete(@PathVariable long codigo) {
+		pessoaRepository.findById(codigo).ifPresent(a -> pessoaRepository.deleteById(a.getCodigo()));       
+	            
+	     } 
 	}
+	
+	
+	
 	
 	
 
